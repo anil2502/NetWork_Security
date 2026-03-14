@@ -1,0 +1,8 @@
+python-dotenv #Specifically use for call the environment variables 
+numpy
+pandas
+matplotlib
+seaborn
+scikit-learn
+
+
