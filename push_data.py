@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 MONGO_DB_CONNECTION_URL = os.getenv("MONGO_DB_USER_URL")
-# print(MONGO_DB_USER_URL)
+# print(MONGO_DB_CONNECTION_URL)
 
 
 
