@@ -6,3 +6,4 @@ seaborn
 scikit-learn
 
 
+# -e . # it will create a folder with the different details of the current Project:::: i think it is good to UnComment end of the project at that time it will create all the details
