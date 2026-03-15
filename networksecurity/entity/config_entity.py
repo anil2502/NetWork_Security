@@ -4,7 +4,7 @@ from networksecurity.constant import training_pipeline
 
 # print(training_pipeline.PIPELINE_NAME)
 # print(training_pipeline.ARTIFACT_DIR)
-print("Now Actuval printing will start-------------------------------")
+# print("Now Actuval printing will start-------------------------------")
 
 
 
@@ -38,11 +38,11 @@ class DataIngestionConfig:
         self.train_test_split_ratio: float = training_pipeline.DATA_INGESTION_TRAIN_TEST_SPLIT_RATION
         self.collection_name: str = training_pipeline.DATA_INGESTION_COLLECTION_NAME
         self.database_name: str = training_pipeline.DATA_INGESTION_DATABASE_NAME
-        print(F"data_ingestion_dir -{self.data_ingestion_dir}")
-        print(F"feature_store_file_path -{self.feature_store_file_path}")
-        print(F"training_file_path -{self.training_file_path}")
-        print(F"testing_file_path -{self.testing_file_path}")
-        print("Now Actuval printing will end-------------------------------")
+        # print(F"data_ingestion_dir -{self.data_ingestion_dir}")
+        # print(F"feature_store_file_path -{self.feature_store_file_path}")
+        # print(F"training_file_path -{self.training_file_path}")
+        # print(F"testing_file_path -{self.testing_file_path}")
+        # print("Now Actuval printing will end-------------------------------")
         # print(F"train_test_split_ratio -{self.train_test_split_ratio}")
         # print(F"collection_name -{self.collection_name}")
         # print(F" -{self.}")
@@ -51,20 +51,30 @@ class DataIngestionConfig:
 
 # not for 285 lecture
 
-# class DataValidationConfig:
-#     def __init__(self,training_pipeline_config:TrainingPipelineConfig):
-#         self.data_validation_dir: str = os.path.join( training_pipeline_config.artifact_dir, training_pipeline.DATA_VALIDATION_DIR_NAME)
-#         self.valid_data_dir: str = os.path.join(self.data_validation_dir, training_pipeline.DATA_VALIDATION_VALID_DIR)
-#         self.invalid_data_dir: str = os.path.join(self.data_validation_dir, training_pipeline.DATA_VALIDATION_INVALID_DIR)
-#         self.valid_train_file_path: str = os.path.join(self.valid_data_dir, training_pipeline.TRAIN_FILE_NAME)
-#         self.valid_test_file_path: str = os.path.join(self.valid_data_dir, training_pipeline.TEST_FILE_NAME)
-#         self.invalid_train_file_path: str = os.path.join(self.invalid_data_dir, training_pipeline.TRAIN_FILE_NAME)
-#         self.invalid_test_file_path: str = os.path.join(self.invalid_data_dir, training_pipeline.TEST_FILE_NAME)
-#         self.drift_report_file_path: str = os.path.join(
-#             self.data_validation_dir,
-#             training_pipeline.DATA_VALIDATION_DRIFT_REPORT_DIR,
-#             training_pipeline.DATA_VALIDATION_DRIFT_REPORT_FILE_NAME,
-#         )
+class DataValidationConfig:
+    def __init__(self,training_pipeline_config:TrainingPipelineConfig):
+        self.data_validation_dir: str = os.path.join( training_pipeline_config.artifact_dir, training_pipeline.DATA_VALIDATION_DIR_NAME)
+        self.valid_data_dir: str = os.path.join(self.data_validation_dir, training_pipeline.DATA_VALIDATION_VALID_DIR)
+        self.invalid_data_dir: str = os.path.join(self.data_validation_dir, training_pipeline.DATA_VALIDATION_INVALID_DIR)
+        self.valid_train_file_path: str = os.path.join(self.valid_data_dir, training_pipeline.TRAIN_FILE_NAME)
+        self.valid_test_file_path: str = os.path.join(self.valid_data_dir, training_pipeline.TEST_FILE_NAME)
+        self.invalid_train_file_path: str = os.path.join(self.invalid_data_dir, training_pipeline.TRAIN_FILE_NAME)
+        self.invalid_test_file_path: str = os.path.join(self.invalid_data_dir, training_pipeline.TEST_FILE_NAME)
+        self.drift_report_file_path: str = os.path.join(
+            self.data_validation_dir,
+            training_pipeline.DATA_VALIDATION_DRIFT_REPORT_DIR,
+            training_pipeline.DATA_VALIDATION_DRIFT_REPORT_FILE_NAME,
+        )
+        # print("----------------------------------------------------------------")
+        # print(f"data_validation_dir =====>>::{self.data_validation_dir}")
+        # print(f"valid_data_dir =====>>::{self.valid_data_dir}")
+        # print(f"invalid_data_dir =====>>::{self.invalid_data_dir}")
+        # print(f"valid_train_file_path =====>>::{self.valid_train_file_path}")
+        # print(f"valid_test_file_path =====>>::{self.valid_test_file_path}")
+        # print(f"invalid_train_file_path =====>>::{self.invalid_train_file_path}")
+        # print(f"invalid_test_file_path =====>>::{self.invalid_test_file_path}")
+        # print(f"drift_report_file_path =====>>::{self.drift_report_file_path}")
+        # print("----------------------------------------------------------------")
 
 
 # class DataTransformationConfig:
@@ -88,3 +98,7 @@ class DataIngestionConfig:
 #         )
 #         self.expected_accuracy: float = training_pipeline.MODEL_TRAINER_EXPECTED_SCORE
 #         self.overfitting_underfitting_threshold = training_pipeline.MODEL_TRAINER_OVER_FIITING_UNDER_FITTING_THRESHOLD
+
+
+
+
