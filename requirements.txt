@@ -1,4 +1,4 @@
-python-dotenv #Specifically use for call the environment variables 
+python-dotenv #Specifically use for Load the environment variables 
 numpy
 pandas
 matplotlib
@@ -9,5 +9,10 @@ pymongo[srv]
 certifi
 dill
 pyyaml
+mlflow
+dagshub
+fastapi
+uvicorn
+python-multipart
 
 # -e . # it will create a folder with the different details of the current Project:::: i think it is good to UnComment end of the project at that time it will create all the details

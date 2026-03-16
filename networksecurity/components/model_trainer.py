@@ -23,11 +23,11 @@ from sklearn.ensemble import (
     GradientBoostingClassifier,
     RandomForestClassifier,
 )
-# import mlflow
+import mlflow
 # from urllib.parse import urlparse
 
-# import dagshub
-# #dagshub.init(repo_owner='krishnaik06', repo_name='networksecurity', mlflow=True)
+import dagshub
+dagshub.init(repo_owner='anil2502', repo_name='NetWork_Security', mlflow=True)
 
 # os.environ["MLFLOW_TRACKING_URI"]="https://dagshub.com/krishnaik06/networksecurity.mlflow"
 # os.environ["MLFLOW_TRACKING_USERNAME"]="krishnaik06"
@@ -45,20 +45,21 @@ class ModelTrainer:
         except Exception as e:
             raise NetworkSecurityException(e,sys)
         
-    # def track_mlflow(self,best_model,classificationmetric):
+    def track_mlflow(self,best_model,classificationmetric):
     #     mlflow.set_registry_uri("https://dagshub.com/krishnaik06/networksecurity.mlflow")
     #     tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
-    #     with mlflow.start_run():
-    #         f1_score=classificationmetric.f1_score
-    #         precision_score=classificationmetric.precision_score
-    #         recall_score=classificationmetric.recall_score
+        with mlflow.start_run():
+            f1_score=classificationmetric.f1_score
+            precision_score=classificationmetric.precision_score
+            recall_score=classificationmetric.recall_score
 
             
 
-            # mlflow.log_metric("f1_score",f1_score)
-            # mlflow.log_metric("precision",precision_score)
-            # mlflow.log_metric("recall_score",recall_score)
-            # mlflow.sklearn.log_model(best_model,"model")
+            mlflow.log_metric("f1_score",f1_score)
+            mlflow.log_metric("precision",precision_score)
+            mlflow.log_metric("recall_score",recall_score)
+            mlflow.sklearn.log_model(best_model,"model")
+
             # # Model registry does not work with file store
             # if tracking_url_type_store != "file":
 
@@ -127,13 +128,13 @@ class ModelTrainer:
         classification_train_metric=get_classification_score(y_true=y_train,y_pred=y_train_pred)
         
         ## Track the experiements with mlflow
-        # self.track_mlflow(best_model,classification_train_metric)
+        self.track_mlflow(best_model,classification_train_metric)
 
 
         y_test_pred=best_model.predict(x_test)
         classification_test_metric=get_classification_score(y_true=y_test,y_pred=y_test_pred)
 
-        # self.track_mlflow(best_model,classification_test_metric)
+        self.track_mlflow(best_model,classification_test_metric)
 
         preprocessor = load_object(file_path=self.data_transformation_artifact.transformed_object_file_path)
             
@@ -144,7 +145,7 @@ class ModelTrainer:
         
         save_object(self.model_trainer_config.trained_model_file_path,obj=NetworkModel)
 
-        
+
         #model pusher
         save_object("final_model/model.pkl",best_model)
         
